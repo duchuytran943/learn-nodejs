@@ -6,6 +6,8 @@
   "scripts": {
     "start": "nodemon --inspect src/index.js",
     "watch-scss": "node-sass --watch src/resources/scss/ -o src/public/css/",
+    "format-code": "prettier --trailing-comma all --write 'src/**/*.{js, json, scss}'",
+    "format-code-staged": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,9 +16,20 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0"
   },
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --trailing-comma all --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "devDependencies": {
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
     "morgan": "^1.10.0",
     "node-sass": "^4.14.1",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.2"
   }
 }
