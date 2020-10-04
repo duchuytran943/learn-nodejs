@@ -7,6 +7,10 @@ const app = express();
 const port = 1234;
 
 const route = require("./routes");
+const db = require("./config/db");
+
+//Connect to DB
+db.connect();
 
 app.use(express.urlencoded({ extended: true })); //parse form data from body
 app.use(express.json()); //parse data from JS
@@ -22,7 +26,7 @@ app.engine(
   "hbs",
   handlebars({
     extname: ".hbs", //change file extention .handlebars => .hbs
-  })
+  }),
 );
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources/views"));
