@@ -30,6 +30,10 @@ app.get("/news", (req, res) => {
   return res.render("news");
 });
 
+app.get("/search", (req, res) => {
+  return res.render("search");
+});
+
 app.listen(port, () => {
   console.log(`run add port ${port}`);
 });
