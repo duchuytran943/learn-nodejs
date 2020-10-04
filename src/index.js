@@ -6,6 +6,9 @@ const handlebars = require("express-handlebars");
 const app = express();
 const port = 1234;
 
+app.use(express.urlencoded({ extended: true })); //parse form data from body
+app.use(express.json()); //parse data from JS
+
 //Set public static file
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -32,6 +35,11 @@ app.get("/news", (req, res) => {
 
 app.get("/search", (req, res) => {
   return res.render("search");
+});
+
+app.post("/search", (req, res) => {
+  console.log(req.body);
+  return res.send("");
 });
 
 app.listen(port, () => {
