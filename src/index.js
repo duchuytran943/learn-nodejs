@@ -6,6 +6,8 @@ const handlebars = require("express-handlebars");
 const app = express();
 const port = 1234;
 
+const route = require("./routes");
+
 app.use(express.urlencoded({ extended: true })); //parse form data from body
 app.use(express.json()); //parse data from JS
 
@@ -25,22 +27,8 @@ app.engine(
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources/views"));
 
-app.get("/", (req, res) => {
-  return res.render("home");
-});
-
-app.get("/news", (req, res) => {
-  return res.render("news");
-});
-
-app.get("/search", (req, res) => {
-  return res.render("search");
-});
-
-app.post("/search", (req, res) => {
-  console.log(req.body);
-  return res.send("");
-});
+//Routes init
+route(app);
 
 app.listen(port, () => {
   console.log(`run add port ${port}`);
