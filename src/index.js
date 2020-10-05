@@ -29,11 +29,11 @@ app.engine(
   }),
 );
 app.set("view engine", "hbs");
-app.set("views", path.join(__dirname, "resources/views"));
+app.set("views", path.join(__dirname, "resources", "views"));
 
 //Routes init
 route(app);
 
 app.listen(port, () => {
-  console.log(`run add port ${port}`);
+  console.log(`App run at port ${port}`);
 });
