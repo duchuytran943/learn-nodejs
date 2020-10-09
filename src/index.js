@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 const handlebars = require("express-handlebars");
+const methodOverride = require("method-override");
 
 const app = express();
 const port = 1234;
@@ -21,11 +22,18 @@ app.use(express.static(path.join(__dirname, "public")));
 //HTTP logger
 app.use(morgan("combined"));
 
+//Override method (PUT, PATCH,....)
+app.use(methodOverride("_method"));
+
 //Template engine
 app.engine(
   "hbs",
   handlebars({
     extname: ".hbs", //change file extention .handlebars => .hbs
+    // create functions helpers for handlebar. Use these functions at file views (.hbs).
+    helpers: {
+      sum: (a, b) => a + b,
+    },
   }),
 );
 app.set("view engine", "hbs");
