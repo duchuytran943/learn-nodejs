@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon --inspect src/index.js",
     "watch-scss": "node-sass --watch src/resources/scss/ -o src/public/css/",
-    "format-code": "prettier --trailing-comma all --write 'src/**/*.{js, json, scss}'",
+    "format-code": "prettier --print-width 80 --trailing-comma all --write 'src/**/*.{js, json, scss}'",
     "format-code-staged": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,7 +20,7 @@
     "mongoose-slug-generator": "^1.0.4"
   },
   "lint-staged": {
-    "src/**/*.{js,json,scss}": "prettier --trailing-comma all --write"
+    "src/**/*.{js,json,scss}": "prettier --print-width 80 --trailing-comma all --write"
   },
   "husky": {
     "hooks": {

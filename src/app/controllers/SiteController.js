@@ -1,5 +1,5 @@
-const Course = require("../models/Course");
-const { mutipleMongooseToObject } = require("../../utli/mongoose");
+const Course = require('../models/Course');
+const { mutipleMongooseToObject } = require('../../utli/mongoose');
 
 class SiteController {
   //[GET] /
@@ -14,9 +14,9 @@ class SiteController {
     // });
 
     Course.find({})
-      .then((courses) => {
+      .then(courses => {
         // courses = courses.map((course) => course.toObject());
-        return res.render("home", {
+        return res.render('home', {
           courses: mutipleMongooseToObject(courses),
         });
       })
@@ -25,7 +25,7 @@ class SiteController {
 
   //[GET] /search
   search(req, res) {
-    res.render("search");
+    res.render('search');
   }
 }
 
