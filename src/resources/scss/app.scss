@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 .card-course-item {
   margin-top: 16px;
@@ -9,4 +9,9 @@
   height: 28px;
   border-radius: 50%;
   margin-right: 4px;
+}
+
+.select-options-for-checkbox {
+  width: 200px;
+  margin: 0 8px;
 }

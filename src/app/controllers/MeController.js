@@ -6,7 +6,6 @@ class MeController {
   storedCourses(req, res, next) {
     Promise.all([Course.find(), Course.countDocumentsDeleted()])
       .then(([courses, deletedCount]) => {
-        console.log('deletedCounttttttttttttttttttttt', deletedCount);
         courses = mutipleMongooseToObject(courses);
         res.render('me/stored-courses', {
           courses,
