@@ -80,10 +80,10 @@ class CourseController {
     const formData = req.body;
     formData.image = `https://img.youtube.com/vi/${req.body.vId}/sddefault.jpg`;
     const course = new Course(formData);
-    course
-      .save()
-      .then(res.redirect('/me/stored/courses'))
-      .catch(error => {});
+    course.save().then(res.redirect('/me/stored/courses')).catch(next);
+
+    // upsert mongode
+    // mongoose sequence
   }
 
   // [POST] /courses/handle-form-actions

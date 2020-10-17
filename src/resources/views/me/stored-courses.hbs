@@ -20,7 +20,9 @@
         <thead>
             <tr>
                 <th></th>
-                <th scope="col">#</th>
+                <th scope="col">ID
+                    {{{sortable '_id' _sort}}}
+                </th>
                 <th scope="col">Tên khóa học
                     {{!-- <a href="?_sort&column=name&type=desc"><span class="oi oi-elevator"></span></a> --}}
                     {{!-- {{sortable 'name' _sort}} --}}
@@ -45,8 +47,7 @@
                         <input class="form-check-input" type="checkbox" name="courseIds[]" value="{{this._id}}">
                     </div>
                 </td>
-                {{!-- sum: this is function helpers. Register at src/index --}}
-                <td scope="row">{{sum @index 1}}</td>
+                <td scope="row">{{this._id}}</td>
                 <td>{{this.name}}</td>
                 <td>{{this.level}}</td>
                 <td>{{this.createdAt}}</td>
